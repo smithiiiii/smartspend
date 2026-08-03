@@ -27,7 +27,7 @@ const noteInput = document.getElementById("note");
 
 const transactionBody = document.getElementById("transactionBody");
 const transactionCountBadge = document.getElementById("transactionCountBadge");
-const transactionsCard = document.querySelector(".transactions-card");
+const transactionsCard = document.querySelector(".transactions-panel");
 
 let categoryChart = null;
 let weeklyChart = null;
