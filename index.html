@@ -6,7 +6,8 @@
   <title>SmartSpend | Personal Expense Analytics</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,13 +15,18 @@
   <header class="app-header">
     <div class="header-content">
       <div class="brand">
-        <div class="brand-icon">💠</div>
-        <div>
+        <div class="brand-seal">SS</div>
+        <div class="brand-text">
           <h1>SmartSpend</h1>
-          <p class="tagline">Personal Expense Analytics Dashboard</p>
+          <p class="tagline">Personal&nbsp;Expense&nbsp;Analytics</p>
         </div>
       </div>
-      <div class="header-date" id="todayDate"></div>
+      <div class="header-meta">
+        <span class="status-dot"></span>
+        <span class="status-label">Local data · updates live</span>
+        <span class="meta-divider">|</span>
+        <span id="todayDate"></span>
+      </div>
     </div>
   </header>
 
@@ -30,8 +36,9 @@
     <section class="top-row">
 
       <!-- Expense Input Card -->
-      <div class="card expense-form-card">
-        <h2 class="card-title">Add Expense</h2>
+      <div class="panel expense-form-panel">
+        <p class="eyebrow">New Entry</p>
+        <h2 class="panel-title">Add Expense</h2>
         <form id="expenseForm">
           <div class="form-group">
             <label for="amount">Amount (₹)</label>
@@ -42,14 +49,14 @@
             <label for="category">Category</label>
             <select id="category" required>
               <option value="" disabled selected>Select category</option>
-              <option value="Food">🍔 Food</option>
-              <option value="Transport">🚗 Transport</option>
-              <option value="Shopping">🛍️ Shopping</option>
-              <option value="Bills">🧾 Bills</option>
-              <option value="Entertainment">🎬 Entertainment</option>
-              <option value="Health">💊 Health</option>
-              <option value="Education">📚 Education</option>
-              <option value="Other">📦 Other</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Bills">Bills</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Health">Health</option>
+              <option value="Education">Education</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -60,10 +67,10 @@
 
           <div class="form-group">
             <label for="note">Note (optional)</label>
-            <input type="text" id="note" placeholder="e.g. Lunch with friends" maxlength="60" />
+            <input type="text" id="note" placeholder="e.g. Lunch with a client" maxlength="60" />
           </div>
 
-          <button type="submit" class="btn-primary">+ Add Expense</button>
+          <button type="submit" class="btn-primary">Add Expense</button>
         </form>
       </div>
 
@@ -96,22 +103,25 @@
         <div class="stat-card highlight-card">
           <span class="stat-label">Predicted Monthly Spend</span>
           <span class="stat-value" id="statPrediction">₹0</span>
+          <span class="stat-footnote">14-day trend, projected over 30 days</span>
         </div>
       </div>
     </section>
 
     <!-- ===== CHARTS SECTION ===== -->
     <section class="charts-section">
-      <div class="card chart-card">
-        <h2 class="card-title">Spending by Category</h2>
+      <div class="panel chart-panel">
+        <p class="eyebrow">Breakdown</p>
+        <h2 class="panel-title">Spending by Category</h2>
         <div class="chart-wrapper">
           <canvas id="categoryChart"></canvas>
         </div>
         <p class="empty-state" id="chartEmptyState">Add an expense to see your breakdown</p>
       </div>
 
-      <div class="card chart-card">
-        <h2 class="card-title">Weekly Spending Trend</h2>
+      <div class="panel chart-panel">
+        <p class="eyebrow">Last 7 Days</p>
+        <h2 class="panel-title">Weekly Spending Trend</h2>
         <div class="chart-wrapper">
           <canvas id="weeklyChart"></canvas>
         </div>
@@ -120,9 +130,12 @@
     </section>
 
     <!-- ===== TRANSACTIONS ===== -->
-    <section class="card transactions-card">
+    <section class="panel transactions-panel">
       <div class="transactions-header">
-        <h2 class="card-title">Recent Transactions</h2>
+        <div>
+          <p class="eyebrow">Ledger</p>
+          <h2 class="panel-title">Recent Transactions</h2>
+        </div>
         <span class="transaction-count" id="transactionCountBadge">0 items</span>
       </div>
 
@@ -133,7 +146,7 @@
               <th>Date</th>
               <th>Category</th>
               <th>Note</th>
-              <th>Amount</th>
+              <th class="col-amount">Amount</th>
               <th></th>
             </tr>
           </thead>
@@ -148,7 +161,7 @@
   </main>
 
   <footer class="app-footer">
-    <p>Built with vanilla JS, HTML &amp; CSS · Data stored locally in your browser</p>
+    <p>SmartSpend — built with vanilla JS, HTML &amp; CSS. Data stored locally in your browser.</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
