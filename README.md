@@ -288,6 +288,6 @@ The emphasis is on maintainable architecture, predictable behavior, and measurab
 
 ---
 
-**Author:** [Your Name](https://github.com/<your-username>)
+**Author:** [Smithika S](https://github.com/smithiiiii)
 
-**Repository:** [SmartSpend](https://github.com/<your-username>/SmartSpend)
+**Repository:** [SmartSpend](https://github.com/smithiiiii/SmartSpend)
